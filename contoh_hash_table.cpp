@@ -1,0 +1,35 @@
+// CONTOH SEDEERHANA HASH TABLE  
+# include <iostream>
+# include <cstring>
+# include <cstdlib>
+using namespace std;
+
+// Struktur data disimpan dalam bentuk struct
+struct ht_attr{
+  char* key;// Atribut kunci 
+  char* value; // Atribut value 
+};
+
+// fungsi menyimpan kunci dan nilai dari hash
+ht_attr* create_item(const char* key, const char* value){
+    
+    ht_attr* items = new ht_attr(); // alokasi memori dinamis
+    items->key = new char[strlen(key) + 1]; // mengalokasi memori dinamis dgn sebesar panjang dari key
+    items->value = new char[strlen(value) + 1]; // mengalokasi memori dinamis dgn sebesar panjang dari  value
+    strcpy(items->key,key); // memasukkan  kunci ke attribut dgn menduplikasi nilainya
+    strcpy(items->value,value); // memasukkan nilai ke attribut dgn menduplikasi nilainya
+    
+    return items;
+}
+
+int main () {
+    
+    ht_attr* item = create_item("CHOPSUEY","Fadli Aidin"); // menyimpan key dan value dalam satu objek 
+    
+    cout <<"Key : "<< item->key <<"\nValue : "<< item->value << endl; // memanggil key dan value
+    
+    delete item->key; delete item->value;
+    
+    
+    
+}
