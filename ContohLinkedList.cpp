@@ -78,6 +78,44 @@ void Insertfront(Linked** head, int _val){
         
         
     }
+
+void DeleteElements(Linked** head, Linked** del){
+
+    Linked* temp = new Linked();
+    Linked* prev = new Linked();
+
+    temp = *head;
+    prev = *del;
+
+    if(temp == prev){
+        *head = temp->connect;
+        delete temp;
+        return;
+    }
+
+    while(temp->connect != prev){
+        temp = temp->connect;
+    }
+
+
+    if(!temp) {
+        return;
+    }
+
+    temp->connect = prev->connect;
+    delete prev;
+
+    
+
+
+
+
+
+    
+        
+}
+
+
     
 
     
@@ -104,10 +142,11 @@ int main(){
     
     Insertback(&Obj1,243);
     Insertfront(&Obj1,345);
+    DeleteElements(&Obj1,&Obj2);
     printLinks(Obj1);
     
     
-    delete Obj1, Obj2, Obj3;
+    
     
     
     
